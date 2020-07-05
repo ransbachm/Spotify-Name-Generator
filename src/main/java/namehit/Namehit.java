@@ -17,6 +17,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.hc.core5.http.ParseException;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.SpotifyHttpManager;
@@ -35,10 +38,13 @@ public class Namehit {
 	static String lastState = null;
 	
 	public static void main(String [] args) throws ParseException, SpotifyWebApiException, IOException  {
+		// calm down logger
+		Logger.getRootLogger().setLevel(Level.ERROR);
+		BasicConfigurator.configure();
 		
 		// API credentials
-		String client_id = "9bcdca1a23834011b0cffb4aa7ace120";
-		String client_secret = TokenManager.getToken();
+		String client_id = TokenManager.getID();
+		String client_secret = TokenManager.getSecret();
 		URI redirect_url = SpotifyHttpManager.makeUri("http://localhost:8888");
 		
 		String token = "";
@@ -85,7 +91,7 @@ public class Namehit {
 		token = tokenReq.execute().getAccessToken();
 		
 		
-		System.out.println(token);
+		//System.out.println(token);
 		
 		// do the actual data gathering
 		
@@ -135,12 +141,13 @@ public class Namehit {
 		}
 		
 		Arrays.stream(names.toArray()).forEach(System.out::println);;
-		System.out.println(names.size());
 		System.out.println();
 		
-		for(int i=0; i<100_000; i++) {
+		for(int i=0; i<10_000; i++) {
 			System.out.println(getRandomName(names, 3));
 		}
+		System.exit(0);
+		
 	}
 	
 	private static String getRandomName(List<String> from, int complexity) {
