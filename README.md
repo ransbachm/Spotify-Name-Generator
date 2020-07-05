@@ -14,7 +14,7 @@ To setup the program up do the following steps.
 ```
 http://localhost:8888
 ```
-- Create a file called "apiSecret.key", containg the client id and secret in that same folder as the executable
+- Create a file called "apiSecret.key" containg the client id and secret in that same folder as the executable
 ```
 [ID]
 [Secet]
