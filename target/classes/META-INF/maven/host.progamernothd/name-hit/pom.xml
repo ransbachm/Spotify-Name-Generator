@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>host.progamernothd</groupId>
+  <artifactId>name-hit</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <dependencies>
+  	
+
+
+
+<!-- https://mvnrepository.com/artifact/se.michaelthelin.spotify/spotify-web-api-java -->
+<dependency>
+    <groupId>se.michaelthelin.spotify</groupId>
+    <artifactId>spotify-web-api-java</artifactId>
+    <version>6.1.0</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/com.sparkjava/spark-core -->
+<dependency>
+    <groupId>com.sparkjava</groupId>
+    <artifactId>spark-core</artifactId>
+    <version>2.9.2</version>
+</dependency>
+
+
+
+
+  </dependencies>
+</project>
