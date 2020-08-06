@@ -146,7 +146,7 @@ public class Namehit {
 		Arrays.stream(names.toArray()).forEach(System.out::println);;
 		System.out.println();
 		
-		for(int i=0; i<1000_000; i++) {
+		for(int i=0; i<10_000; i++) {
 			System.out.println(getRandomName(names, 3));
 		}
 		System.exit(0);
