@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+.project
 
 # BlueJ files
 *.ctxt
@@ -25,3 +26,6 @@ hs_err_pid*
 *.properties
 *.prefs
 *.MF
+/target/
+.classpath
+*.key
