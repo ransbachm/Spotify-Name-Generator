@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.SpotifyHttpManager;
+import com.wrapper.spotify.enums.ModelObjectType;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
 import com.wrapper.spotify.model_objects.specification.Paging;
 import com.wrapper.spotify.model_objects.specification.PlaylistSimplified;
@@ -117,8 +118,10 @@ public class Namehit {
 			if(tracks.getTotal() > tracks.getLimit()) {
 				System.out.println("Too many songs in " + list.getName());
 			}
-			for(PlaylistTrack track : tracks.getItems()) {
-				String name = ((Track)track.getTrack()).getName();
+			for(PlaylistTrack plTrack : tracks.getItems()) {
+				if(plTrack.getTrack().getType() != ModelObjectType.TRACK) continue; // ignore all but songs
+				Track track = ((Track) plTrack.getTrack());
+				String name = track.getName();
 				//System.out.println(name);
 				rawNames.add(name);
 			}
@@ -143,7 +146,7 @@ public class Namehit {
 		Arrays.stream(names.toArray()).forEach(System.out::println);;
 		System.out.println();
 		
-		for(int i=0; i<10_000; i++) {
+		for(int i=0; i<1000_000; i++) {
 			System.out.println(getRandomName(names, 3));
 		}
 		System.exit(0);
