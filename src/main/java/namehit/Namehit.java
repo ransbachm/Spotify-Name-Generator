@@ -166,7 +166,7 @@ public class Namehit {
 	}
 	
 	private static String getSafeState() {
-		return getRandomString(4);
+		return getRandomString(256);
 	}
 	
 	private static String getRandomString(int length) {
